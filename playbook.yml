@@ -1,0 +1,9 @@
+---
+- hosts: provision-box
+  gather_facts: false
+
+  tasks:
+    - name: pinging machine
+      ping:
+      retries: 10
+      delay: 5
