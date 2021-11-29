@@ -35,5 +35,7 @@ Vagrant.configure("2") do |config|
 end
 
 $script = <<SCRIPT
+sudo rm /etc/apt/sources.list
+sudo cp /vagrant/inventories/sources.list /etc/apt/
 sudo apt update -y
 SCRIPT
