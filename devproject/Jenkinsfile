@@ -1,0 +1,27 @@
+pipeline {
+    agent any
+    stages {
+        stage('Git Clone') {
+            steps {
+                git branch: 'main',
+                url: 'https://github.com/vngrs/devops-python-app.git'
+            }
+            
+        }
+          stage('Docker Build') {
+            steps {
+               sh "docker build -t devapp:latest ."
+               
+            }
+        }
+
+       stage('Docker Push To Regsitry') {
+            steps {
+               #dockerhub login
+               sh "docker push -t devapp:latest ."
+               
+            }
+        }
+    }
+    
+}
